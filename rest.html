@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant</title>
+  <style>
+  body{
+    background-image: url(https://images.creativemarket.com/0.1.0/ps/7612131/2340/1560/m1/fpnw/wm0/glass-restaurant-logo-mockup-1-(2340)-.jpg?1579410587&s=63f9f79a9afa4dee5db21c87751a1a94);
+  }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid black;
+    }
+
+    tr:nth-child(even) {
+      background-color: antiquewhite;
+    }
+  </style>
+</head>
+<body>
+<img src="https://images.creativemarket.com/0.1.0/ps/7612131/2340/1560/m1/fpnw/wm0/glass-restaurant-logo-mockup-1-(2340)-.jpg?1579410587&s=63f9f79a9afa4dee5db21c87751a1a94"
+ alt="" height="100px" width="150px">
+  <h2 align="center">Restaurant Menu</h2>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td>Pizza</td>
+      <td>$10.00</td>
+      <td><input type="number" id="pizzaQty" value="0"></td>
+      <td><span id="pizzaTotal">$0.00</span></td>
+    </tr>
+    <tr>
+      <td>Burger</td>
+      <td>$8.00</td>
+      <td><input type="number" id="burgerQty" value="0"></td>
+      <td><span id="burgerTotal">$0.00</span></td>
+    </tr>
+    <tr>
+      <td>Salad</td>
+      <td>$5.00</td>
+      <td><input type="number" id="saladQty" value="0"></td>
+      <td><span id="saladTotal">$0.00</span></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Total:</strong></td>
+      <td><span id="grandTotal">$0.00</span></td>
+    </tr>
+  </table>
+
+  <script>
+    // Function to calculate and update totals
+    function calculateTotal() {
+      var pizzaQty = document.getElementById("pizzaQty").value;
+      var burgerQty = document.getElementById("burgerQty").value;
+      var saladQty = document.getElementById("saladQty").value;
+
+      var pizzaTotal = pizzaQty * 10.00;
+      var burgerTotal = burgerQty * 8.00;
+      var saladTotal = saladQty * 5.00;
+
+      document.getElementById("pizzaTotal").textContent = "$" + pizzaTotal.toFixed(2);
+      document.getElementById("burgerTotal").textContent = "$" + burgerTotal.toFixed(2);
+      document.getElementById("saladTotal").textContent = "$" + saladTotal.toFixed(2);
+
+      var grandTotal = pizzaTotal + burgerTotal + saladTotal;
+      document.getElementById("grandTotal").textContent = "$" + grandTotal.toFixed(2);
+    }
+
+    // Attach event listeners to quantity inputs
+    document.getElementById("pizzaQty").addEventListener("input", calculateTotal);
+    document.getElementById("burgerQty").addEventListener("input", calculateTotal);
+    document.getElementById("saladQty").addEventListener("input", calculateTotal);
+  </script>
+</body>
+</html>
